@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "ecfhe-sdk"
+version = "1.1.0"
+description = "EC-ElGamal Fully Homomorphic Encryption on BN254 — Python SDK"
+readme = "README.md"
+license = { text = "Proprietary — 4Chains Inc." }
+requires-python = ">=3.11"
+dependencies = [
+    "ec-fhe-engine>=0.1.0",
+]
+
+[project.optional-dependencies]
+fast = ["mcl"]      # herumi BN254 C++ backend (~20-100x faster for pairing)
+dev  = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ecfhe_sdk*"]
+
+[project.urls]
+Homepage = "https://github.com/4chains-inc/ecfhe-sdk"
