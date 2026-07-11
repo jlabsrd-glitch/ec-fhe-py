@@ -2,16 +2,8 @@
 
 from __future__ import annotations
 
-import os
-import sys
 from fractions import Fraction
 from typing import List
-
-# Make the engine importable when installed from inside the repo
-_here = os.path.dirname(__file__)
-_engine_root = os.path.abspath(os.path.join(_here, "..", "..", "..", "ec_fhe_engine"))
-if os.path.isdir(_engine_root) and _engine_root not in sys.path:
-    sys.path.insert(0, _engine_root)
 
 from ecfhe.interface import ECFHESession as _ECFHESession
 from .ciphertext import FHECiphertext

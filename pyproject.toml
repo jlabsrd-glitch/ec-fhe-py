@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.backends.legacy:build"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "ecfhe-sdk"
@@ -10,16 +10,16 @@ readme = "README.md"
 license = { text = "Proprietary — 4Chains Inc." }
 requires-python = ">=3.11"
 dependencies = [
-    "ec-fhe-engine>=0.1.0",
+    "py_ecc>=6.0.0,<9.0.0",
 ]
 
 [project.optional-dependencies]
-fast = ["mcl"]      # herumi BN254 C++ backend (~20-100x faster for pairing)
+fast = ["mcl"]
 dev  = ["pytest>=7"]
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["ecfhe_sdk*"]
+include = ["ecfhe*", "ecfhe_sdk*"]
 
 [project.urls]
-Homepage = "https://github.com/4chains-inc/ecfhe-sdk"
+Homepage = "https://github.com/jlabsrd-glitch/ec-fhe-py"
